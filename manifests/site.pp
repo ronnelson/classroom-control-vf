@@ -48,6 +48,6 @@ node default {
     owner => 'root',
     group => 'root',
     mode => '0644',
-    content => "Played with peppet, facter and resources today",
+    content => "Played with puppet, facter and resources today",
   }
 }
