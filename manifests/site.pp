@@ -55,6 +55,8 @@ node default {
 # include users
 include skeleton
 
+include memcached
+
 exec { 'cowsay':  
   command    => "/usr/local/bin/cowsay 'Welcome to ${::fqdn}!' > /etc/motd",  
   creates => '/etc/motd',
