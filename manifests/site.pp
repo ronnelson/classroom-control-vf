@@ -52,7 +52,8 @@ node default {
 #    content => "Played with puppet, facter and resources today",
 #  }
  
-  include users
+include users
+include skeleton
 
 exec { 'cowsay':  
   command    => "/usr/local/bin/cowsay 'Welcome to ${::fqdn}!' > /etc/motd",  
