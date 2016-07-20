@@ -50,4 +50,9 @@ node default {
     mode => '0644',
     content => "Played with puppet, facter and resources today",
   }
+  
+  host { 'testing.puppetlabs.vm':
+    ensure => present,
+    ip => '127.0.0.1',
+  }
 }
