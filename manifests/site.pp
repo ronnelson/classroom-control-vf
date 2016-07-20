@@ -43,14 +43,20 @@ node default {
   # Example:
   #   class { 'my_class': }
   notify { "Hello, my name is ${::hostname}": }
-  file { '/etc/motd':  
-    ensure => file,
-    owner => 'root',
-    group => 'root',
-    mode => '0644',
-    content => "Played with puppet, facter and resources today",
-  }
   
+#  file { '/etc/motd':  
+#    ensure => file,
+#    owner => 'root',
+#    group => 'root',
+#    mode => '0644',
+#    content => "Played with puppet, facter and resources today",
+#  }
+ 
+exec { 'cowsay':  
+  command    => '/usr/local/bin/cowsay > /etc/motd',  
+  creates => '/etc/motd',
+}
+ 
   host { 'testing.puppetlabs.vm':
     ensure => present,
     ip => '127.0.0.1',
