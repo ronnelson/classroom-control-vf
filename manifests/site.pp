@@ -47,7 +47,14 @@ node ronnelson.puppetlabs.vm {
     notify { "This is a ${container} virtual machine.": }
   } 
 
-# include users
+  include users
+
+  users::managed_user{'jose':}
+  users::managed_user{'alice':}
+  users::managed_user{'chen':
+    group => "wheel",
+  }
+
   include skeleton
 
   include memcached
