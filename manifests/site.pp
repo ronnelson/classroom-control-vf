@@ -43,8 +43,8 @@ node ronnelson.puppetlabs.vm {
   notify { "Hello, my name is ${::hostname} \n": }
 
   if $::virtual != 'physical' {    
-    $vmname = capitalize($::virtual)    
-    notify { "This is a ${vmname} virtual machine.": }
+    $container = capitalize($::virtual)    
+    notify { "This is a ${container} virtual machine.": }
   } 
 
 # include users
