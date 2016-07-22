@@ -1,6 +1,11 @@
 class nginx {
 
- $docroot = '/var/www'
+  $nginx_user = $::osfamily ? {
+    'redhat' => 'nginx',
+    'debian' => 'www-data',
+  }
+
+  $docroot = '/var/www'
 
   File {
     owner => 'root',
@@ -20,14 +25,15 @@ class nginx {
 
   file { 'html':
     ensure => file,
-    path    => "${docroot}/index.html",  
+    path   => "${docroot}/index.html",  
     source => 'puppet:///modules/nginx/index.html',
   }
 
   file { 'nginx conf':  
     ensure  => file,  
     path    => '/etc/nginx/nginx.conf',  
-    source  => 'puppet:///modules/nginx/nginx.conf',  
+    #    source  => 'puppet:///modules/nginx/nginx.conf',  
+    content  => template('nginx/nginx.erb'),  
     require => Package['nginx'], 
     notify  => Service['nginx'],
   }
