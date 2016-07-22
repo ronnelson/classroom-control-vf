@@ -78,7 +78,7 @@ node ronnelson.puppetlabs.vm {
 
   #lab 18.1
   class { 'nginx':
-    root => '/var/www-new',
+    docroot => '/var/www-new',
   }
 
 
