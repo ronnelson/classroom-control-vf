@@ -56,7 +56,7 @@ node ronnelson.puppetlabs.vm {
 
   include memcached
 
-  include ngnx
+  include nginx
 
   if $::virtual != 'physical' {    
     $container = capitalize($::virtual)    
