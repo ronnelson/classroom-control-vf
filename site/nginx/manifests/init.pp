@@ -20,7 +20,7 @@ class nginx {
 
   file { 'html':
     ensure => file,
-    path    => "${docroot}/index.html":,  
+    path    => "${docroot}/index.html",  
     source => 'puppet:///modules/nginx/index.html',
   }
 
