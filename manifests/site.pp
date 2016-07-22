@@ -72,7 +72,8 @@ node ronnelson.puppetlabs.vm {
   }
 
   # Lab 17.1
-  notice(hiera('message')) 
+  $message = hiera('message')
+  notify {$message:}
 
 }
 
