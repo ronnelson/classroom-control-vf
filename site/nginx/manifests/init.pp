@@ -32,8 +32,8 @@ class nginx {
   file { 'nginx conf':  
     ensure  => file,  
     path    => '/etc/nginx/nginx.conf',  
-    #    source  => 'puppet:///modules/nginx/nginx.conf',  
-    content  => template('nginx/nginx.erb'),  
+    source  => 'puppet:///modules/nginx/nginx.conf',  
+    #content  => template('nginx/nginx.erb'),  
     require => Package['nginx'], 
     notify  => Service['nginx'],
   }
