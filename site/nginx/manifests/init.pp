@@ -1,11 +1,13 @@
 class nginx {
+  $root = '/var/www',
+}{
 
   $nginx_user = $::osfamily ? { 
     'redhat' => 'nginx',
     'debian' => 'www-data',
   }
 
-  $docroot = '/var/www'
+  $docroot = $root
 
   File {
     owner => 'root',
