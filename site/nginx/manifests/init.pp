@@ -1,6 +1,6 @@
-class nginx {
+class nginx (
   $root = '/var/www',
-}{
+){
 
   $nginx_user = $::osfamily ? { 
     'redhat' => 'nginx',
