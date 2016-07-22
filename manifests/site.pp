@@ -42,6 +42,22 @@ node ronnelson.puppetlabs.vm {
 
   notify { "Hello, my name is ${::hostname} \n": }
 
+  exec { 'cowsay':  
+    command    => "/usr/local/bin/cowsay 'Welcome to ${::fqdn}!' > /etc/motd",  
+    creates => '/etc/motd',
+  }
+ 
+  host { 'testing.puppetlabs.vm':
+    ensure => present,
+    ip => '127.0.0.1',
+  }
+
+  include skeleton
+
+  include memcached
+
+  include ngnx
+
   if $::virtual != 'physical' {    
     $container = capitalize($::virtual)    
     notify { "This is a ${container} virtual machine.": }
@@ -53,20 +69,6 @@ node ronnelson.puppetlabs.vm {
   users::managed_user{'alice':}
   users::managed_user{'chen':
     group => "wheel",
-  }
-
-  include skeleton
-
-  include memcached
-
-  exec { 'cowsay':  
-    command    => "/usr/local/bin/cowsay 'Welcome to ${::fqdn}!' > /etc/motd",  
-    creates => '/etc/motd',
-  }
- 
-  host { 'testing.puppetlabs.vm':
-    ensure => present,
-    ip => '127.0.0.1',
   }
 
 }
