@@ -11,3 +11,4 @@ class nginx::params {
     'redhat' => 'nginx',
     'debian' => 'www-data',
   }
+}
