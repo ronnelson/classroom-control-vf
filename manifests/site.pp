@@ -71,6 +71,9 @@ node ronnelson.puppetlabs.vm {
     group => "wheel",
   }
 
+  # Lab 17.1
+  notice(hiera('message')) 
+
 }
 
 node default {
