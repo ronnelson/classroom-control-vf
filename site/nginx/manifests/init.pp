@@ -1,6 +1,6 @@
 class nginx {
 
-  $nginx_user = $::osfamily ? {
+  $nginx_user = $::osfamily ? { 
     'redhat' => 'nginx',
     'debian' => 'www-data',
   }
