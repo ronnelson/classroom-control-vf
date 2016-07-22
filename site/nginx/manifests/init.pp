@@ -1,5 +1,5 @@
 class nginx (
-  $root = '/var/www',
+  $root = undef,
 ){
 
   $nginx_user = $::osfamily ? { 
