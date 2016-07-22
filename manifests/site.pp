@@ -77,7 +77,9 @@ node ronnelson.puppetlabs.vm {
   notify { $message: }
 
   #lab 18.1
-  class { 'nginx':}
+  class { 'nginx':
+    root => '/var/www-new',
+  }
 
 
 }
