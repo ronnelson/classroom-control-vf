@@ -81,6 +81,9 @@ node ronnelson.puppetlabs.vm {
   #  docroot => '/var/www-new',
   #}
 
+  #lab 19
+  include profile::blog
+
 
 }
 
